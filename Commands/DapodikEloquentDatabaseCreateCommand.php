@@ -22,18 +22,11 @@ class DapodikEloquentDatabaseCreateCommand extends Command
 
     public function handle()
     {
-        $connectionName = $this->option('connection') ?: Config::get('dapodik-eloquent.connection') ?: Config::get('database.default');
-
-        if (! is_string($connectionName) || $connectionName === '' || ! Config::has("database.connections.{$connectionName}")) {
-            $this->error("Database connection '{$connectionName}' is not configured in config/database.php.");
-
-            return self::FAILURE;
-        }
-
+        $connectionName = $this->option('connection') ?: Config::get('dapodik-eloquent.connection', Config::get('database.default'));
         $connectionConfig = Config::get("database.connections.{$connectionName}");
 
-        if (empty($connectionConfig['driver'])) {
-            $this->error("Database connection '{$connectionName}' is missing a 'driver' in config/database.php.");
+        if ($connectionConfig === null) {
+            $this->error("Database connection '{$connectionName}' is not configured in config/database.php.");
 
             return self::FAILURE;
         }

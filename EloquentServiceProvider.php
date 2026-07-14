@@ -560,18 +560,6 @@ class EloquentServiceProvider extends ServiceProvider
         $this->app->singleton('dapodik.eloquent.laravel', function ($app) {
             return new EloquentManager($app);
         });
-
-        $this->app->make('events')->listen(CommandStarting::class, function (CommandStarting $event) {
-            $manager = app('dapodik.eloquent.laravel');
-
-            if ($event->command === 'migrate:fresh' && ! $manager->getConfig()['skip_fresh']) {
-                if ($manager->getConfig()['connection'] !== null) {
-                    $manager->dropConnectionTables();
-                }
-
-                $manager->dropAllTables();
-            }
-        });
     }
 
     public function boot()
@@ -591,6 +579,18 @@ class EloquentServiceProvider extends ServiceProvider
                 DapodikEloquentDatabaseCreateCommand::class,
             ]);
         }
+
+        $manager = app('dapodik.eloquent.laravel');
+
+        $this->app['events']->listen(CommandStarting::class, function (CommandStarting $event) use ($manager) {
+            if ($event->command === 'migrate:fresh' && ! $manager->getConfig()['skip_fresh']) {
+                if ($manager->getConfig()['connection'] !== null) {
+                    $manager->dropConnectionTables();
+                }
+
+                $manager->dropAllTables();
+            }
+        });
 
         $this->loadMigrations();
     }
