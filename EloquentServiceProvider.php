@@ -19,6 +19,7 @@ use Dapodik\Laravel\Eloquent\Models\AnggotaRombel;
 use Dapodik\Laravel\Eloquent\Models\Angkutan;
 use Dapodik\Laravel\Eloquent\Models\AngkutanDariBlockgrant;
 use Dapodik\Laravel\Eloquent\Models\Audit\LoggedActions;
+use Dapodik\Laravel\Eloquent\Models\Author;
 use Dapodik\Laravel\Eloquent\Models\Bangunan;
 use Dapodik\Laravel\Eloquent\Models\BangunanDariBlockgrant;
 use Dapodik\Laravel\Eloquent\Models\BangunanLongitudinal;
@@ -39,7 +40,6 @@ use Dapodik\Laravel\Eloquent\Models\Demografi;
 use Dapodik\Laravel\Eloquent\Models\Diklat;
 use Dapodik\Laravel\Eloquent\Models\Dudi;
 use Dapodik\Laravel\Eloquent\Models\Eloquent\SyncStatus;
-use Dapodik\Laravel\Eloquent\Models\FlagData;
 use Dapodik\Laravel\Eloquent\Models\GugusSekolah;
 use Dapodik\Laravel\Eloquent\Models\GuruSasaranPengawas;
 use Dapodik\Laravel\Eloquent\Models\IjazahPd;
@@ -91,7 +91,6 @@ use Dapodik\Laravel\Eloquent\Models\ProgramInklusi;
 use Dapodik\Laravel\Eloquent\Models\Ptk;
 use Dapodik\Laravel\Eloquent\Models\PtkBaru;
 use Dapodik\Laravel\Eloquent\Models\PtkTerdaftar;
-use Dapodik\Laravel\Eloquent\Models\Pustaka\Author;
 use Dapodik\Laravel\Eloquent\Models\Pustaka\Biblio;
 use Dapodik\Laravel\Eloquent\Models\Pustaka\Classifications;
 use Dapodik\Laravel\Eloquent\Models\Pustaka\DaftarAuthor;
@@ -126,7 +125,6 @@ use Dapodik\Laravel\Eloquent\Models\Ref\JenisBantuan;
 use Dapodik\Laravel\Eloquent\Models\Ref\JenisBeasiswa;
 use Dapodik\Laravel\Eloquent\Models\Ref\JenisCita;
 use Dapodik\Laravel\Eloquent\Models\Ref\JenisDiklat;
-use Dapodik\Laravel\Eloquent\Models\Ref\JenisFlag;
 use Dapodik\Laravel\Eloquent\Models\Ref\JenisGugus;
 use Dapodik\Laravel\Eloquent\Models\Ref\JenisHapusBuku;
 use Dapodik\Laravel\Eloquent\Models\Ref\JenisHobby;
@@ -335,7 +333,6 @@ class EloquentServiceProvider extends ServiceProvider
         'create_dapodik_jenis_test_table' => ['table' => 'jenis_test', 'model' => JenisTest::class],
         'create_dapodik_jenis_tinggal_table' => ['table' => 'jenis_tinggal', 'model' => JenisTinggal::class],
         'create_dapodik_jenis_tunjangan_table' => ['table' => 'jenis_tunjangan', 'model' => JenisTunjangan::class],
-        'create_dapodik_jenis_flag_table' => ['table' => 'jenis_flag', 'model' => JenisFlag::class],
         'create_dapodik_jenjang_kepengawasan_table' => ['table' => 'jenjang_kepengawasan', 'model' => JenjangKepengawasan::class],
         'create_dapodik_jenjang_pendidikan_table' => ['table' => 'jenjang_pendidikan', 'model' => JenjangPendidikan::class],
         'create_dapodik_kategori_tk_table' => ['table' => 'kategori_tk', 'model' => KategoriTk::class],
@@ -390,7 +387,6 @@ class EloquentServiceProvider extends ServiceProvider
         'create_dapodik_variabel_value_table' => ['table' => 'variabel_value', 'model' => VariabelValue::class],
         'create_dapodik_akreditasi_sp_table' => ['table' => 'akreditasi_sp', 'model' => AkreditasiSp::class],
         'create_dapodik_akreditasi_prodi_table' => ['table' => 'akreditasi_prodi', 'model' => AkreditasiProdi::class],
-        'create_dapodik_flag_data_table' => ['table' => 'flag_data', 'model' => FlagData::class],
         'create_dapodik_akt_pd_table' => ['table' => 'akt_pd', 'model' => AktPd::class],
         'create_dapodik_aktivitas_kepanitiaan_table' => ['table' => 'aktivitas_kepanitiaan', 'model' => AktivitasKepanitiaan::class],
         'create_dapodik_alat_table' => ['table' => 'alat', 'model' => Alat::class],
