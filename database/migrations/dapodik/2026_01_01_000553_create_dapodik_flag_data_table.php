@@ -32,15 +32,10 @@ class CreateDapodikFlagDataTable extends Migration
             $table->timestamp('last_update')->nullable();
             $table->softDeletes('expired_date');
 
-            $refTable = app(\Dapodik\Laravel\Eloquent\Models\Ref\JenisFlag::class)->getTable();
-            $sekolahTable = app(\Dapodik\Laravel\Eloquent\Models\Sekolah::class)->getTable();
-            $pesertaDidikTable = app(\Dapodik\Laravel\Eloquent\Models\PesertaDidik::class)->getTable();
-            $ptkTable = app(\Dapodik\Laravel\Eloquent\Models\Ptk::class)->getTable();
-
-            $table->foreign('jenis_flag_id')->references('jenis_flag_id')->on($refTable);
-            $table->foreign('sekolah_id')->references('sekolah_id')->on($sekolahTable);
-            $table->foreign('peserta_didik_id')->references('peserta_didik_id')->on($pesertaDidikTable);
-            $table->foreign('ptk_id')->references('ptk_id')->on($ptkTable);
+            $table->foreign('jenis_flag_id')->references('jenis_flag_id')->on('ref.jenis_flag');
+            $table->foreign('sekolah_id')->references('sekolah_id')->on('sekolah');
+            $table->foreign('peserta_didik_id')->references('peserta_didik_id')->on('peserta_didik');
+            $table->foreign('ptk_id')->references('ptk_id')->on('ptk');
         });
     }
 
