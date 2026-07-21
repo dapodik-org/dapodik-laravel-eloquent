@@ -19,6 +19,7 @@ use Dapodik\Laravel\Eloquent\Models\AnggotaRombel;
 use Dapodik\Laravel\Eloquent\Models\Angkutan;
 use Dapodik\Laravel\Eloquent\Models\AngkutanDariBlockgrant;
 use Dapodik\Laravel\Eloquent\Models\Audit\LoggedActions;
+use Dapodik\Laravel\Eloquent\Models\Author;
 use Dapodik\Laravel\Eloquent\Models\Bangunan;
 use Dapodik\Laravel\Eloquent\Models\BangunanDariBlockgrant;
 use Dapodik\Laravel\Eloquent\Models\BangunanLongitudinal;
@@ -90,7 +91,6 @@ use Dapodik\Laravel\Eloquent\Models\ProgramInklusi;
 use Dapodik\Laravel\Eloquent\Models\Ptk;
 use Dapodik\Laravel\Eloquent\Models\PtkBaru;
 use Dapodik\Laravel\Eloquent\Models\PtkTerdaftar;
-use Dapodik\Laravel\Eloquent\Models\Pustaka\Author;
 use Dapodik\Laravel\Eloquent\Models\Pustaka\Biblio;
 use Dapodik\Laravel\Eloquent\Models\Pustaka\Classifications;
 use Dapodik\Laravel\Eloquent\Models\Pustaka\DaftarAuthor;
@@ -399,7 +399,7 @@ class EloquentServiceProvider extends ServiceProvider
         'create_dapodik_anggota_rombel_table' => ['table' => 'anggota_rombel', 'model' => AnggotaRombel::class],
         'create_dapodik_angkutan_table' => ['table' => 'angkutan', 'model' => Angkutan::class],
         'create_dapodik_angkutan_dari_blockgrant_table' => ['table' => 'angkutan_dari_blockgrant', 'model' => AngkutanDariBlockgrant::class],
-        'create_dapodik_author_table' => ['table' => 'author', 'model' => \Dapodik\Laravel\Eloquent\Models\Pustaka\Author::class],
+        'create_dapodik_author_table' => ['table' => 'author', 'model' => Author::class],
         'create_dapodik_bangunan_table' => ['table' => 'bangunan', 'model' => Bangunan::class],
         'create_dapodik_bangunan_dari_blockgrant_table' => ['table' => 'bangunan_dari_blockgrant', 'model' => BangunanDariBlockgrant::class],
         'create_dapodik_bangunan_longitudinal_table' => ['table' => 'bangunan_longitudinal', 'model' => BangunanLongitudinal::class],

@@ -1,7 +1,7 @@
 <?php
 
 use Dapodik\Laravel\Eloquent\Migration;
-use Dapodik\Laravel\Eloquent\Models\Pustaka\Author;
+use Dapodik\Laravel\Eloquent\Models\Author;
 use Illuminate\Database\Schema\Blueprint;
 
 class CreateDapodikAuthorTable extends Migration
