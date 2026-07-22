@@ -18,7 +18,7 @@ abstract class Migration extends BaseMigration
             return app($this->getModel())->getConnectionName();
         }
 
-        return EloquentFacade::getConfig()['connection'] ?? parent::getConnection() ?? config('database.default');
+        return EloquentFacade::getConfig()['connection'] ?? config('database.default');
     }
 
     public function createSchemaIfNotExist()
