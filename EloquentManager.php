@@ -31,7 +31,7 @@ class EloquentManager
         $this->laravel = $laravel;
         $this->config = $this->getConfig();
         $this->driver = $this->getDriverName();
-        $this->baseConnectionName = $this->config['connection'] ?? Schema::getConnection()->getName();
+        $this->baseConnectionName = $this->config['connection'] ?? config('database.default');
 
         $this->createConnections($this->useSplitConnection());
     }
@@ -46,7 +46,7 @@ class EloquentManager
         $baseConnection = $this->getConnectionName();
 
         if (! Config::has("database.connections.{$baseConnection}")) {
-            $templateConnection = Schema::getConnection()->getName();
+            $templateConnection = config('database.default');
             $templateConfig = Config::get("database.connections.{$templateConnection}");
 
             if ($templateConfig) {
