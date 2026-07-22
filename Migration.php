@@ -60,7 +60,13 @@ abstract class Migration extends BaseMigration
 
     public function getTable()
     {
-        return app($this->getModel())->getTable();
+        try {
+            return app($this->getModel())->getTable();
+        } catch (\Throwable $e) {
+            $model = app($this->getModel());
+
+            return $model->getTable() ?? '';
+        }
     }
 
     public function getModel()
